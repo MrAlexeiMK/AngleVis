@@ -1,0 +1,5 @@
+﻿  pch.cpp
+D:\Catalog\Projects\AngleVis\AngleVisualizerTests\pch.cpp(1,10): fatal  error C1083: Не удается открыть файл предкомпилированный заголовок: Debug\AngleVisualizerTests.pch: No such file or directory,
+  test.cpp
+D:\Catalog\Projects\AngleVis\AngleVisualizerTests\test.cpp(1,10): fatal  error C1083: Не удается открыть файл предкомпилированный заголовок: Debug\AngleVisualizerTests.pch: No such file or directory,
+  Создание кода...

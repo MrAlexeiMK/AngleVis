@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GtaTestDurations xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Executable>D:\Catalog\Projects\AngleVis\AngleVisualizer\x64\Debug\AngleVisualizerTests.exe</Executable>
+  <TestDurations>
+    <TestDuration Test="TestAngleSum.TestAngle" Duration="1" />
+    <TestDuration Test="A.v" Duration="1" />
+    <TestDuration Test="TestAngleEquals.TestAngle" Duration="1" />
+    <TestDuration Test="TestAngleEquals." Duration="1" />
+    <TestDuration Test="TestAngleSum." Duration="1" />
+    <TestDuration Test="TestAngle.TestAngleEquals" Duration="1" />
+    <TestDuration Test="TestAngle.TestAngleSum" Duration="1" />
+    <TestDuration Test="TestAngle.TestAngleInput" Duration="1" />
+    <TestDuration Test="TestAngle.TestAngleDiff" Duration="1" />
+    <TestDuration Test="TestAngle.TestAngleMultiply" Duration="1" />
+    <TestDuration Test="TestAngle.TestAngleDivision" Duration="1" />
+    <TestDuration Test="TestAngle.TestAngleComparasions" Duration="1" />
+    <TestDuration Test="TestAngle.TestToRadians" Duration="1" />
+    <TestDuration Test="TestAngle.TestToSeconds" Duration="1" />
+    <TestDuration Test="TestAngle.TestToMinutes" Duration="1" />
+  </TestDurations>
+</GtaTestDurations>

@@ -1,0 +1,5 @@
+D:\Catalog\Projects\AngleVis\AngleVisualizer\Debug\AngleVisualizer.vcxproj.AssemblyReference.cache
+D:\Catalog\Projects\AngleVis\AngleVisualizer\Debug\AngleVisualizer.vcxproj.SuggestedBindingRedirects.cache
+D:\Catalog\Projects\AngleVis\AngleVisualizer\Debug\AngleVisualizer.AngleVis.resources
+D:\Catalog\Projects\AngleVis\AngleVisualizer\Debug\AngleVisualizer.vcxproj.GenerateResource.cache
+D:\Catalog\Projects\AngleVis\AngleVisualizer\Debug\AngleVisualizer.exe
