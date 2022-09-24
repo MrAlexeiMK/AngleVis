@@ -56,7 +56,9 @@ namespace AngleVisualizer {
 			if (a!= "" && Utils::isCorrectAngle(a)) {
 				angle ang(a);
 				double rad = ang.toRadians();
-				radians->Text = Utils::toSystemString(std::to_string(rad) + " rad");
+				radians->Text = Utils::toSystemString(std::to_string(rad) + " radians");
+				minutes->Text = Utils::toSystemString(std::to_string(ang.toMinutes()) + " minutes");
+				seconds->Text = Utils::toSystemString(std::to_string(ang.toSeconds()) + " seconds");
 				gr3->DrawLine(gcnew Pen(Color::Red, 3), result->Width / 2, result->Height / 2,
 					(int)((result->Width / 2) * (cos(rad) + 1)), (int)((result->Height / 2) * (1 - sin(rad))));
 			}
@@ -104,6 +106,8 @@ namespace AngleVisualizer {
 	private: System::Windows::Forms::Button^ angleDiv2;
 	private: System::Windows::Forms::TextBox^ k2;
 	private: System::Windows::Forms::TextBox^ radians;
+	private: System::Windows::Forms::TextBox^ seconds;
+	private: System::Windows::Forms::TextBox^ minutes;
 	private: System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
@@ -130,6 +134,8 @@ namespace AngleVisualizer {
 			this->angleInput2 = (gcnew System::Windows::Forms::TextBox());
 			this->angle2 = (gcnew System::Windows::Forms::PictureBox());
 			this->tableLayoutPanel2 = (gcnew System::Windows::Forms::TableLayoutPanel());
+			this->seconds = (gcnew System::Windows::Forms::TextBox());
+			this->minutes = (gcnew System::Windows::Forms::TextBox());
 			this->radians = (gcnew System::Windows::Forms::TextBox());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->resultOutput = (gcnew System::Windows::Forms::TextBox());
@@ -149,10 +155,10 @@ namespace AngleVisualizer {
 			// 
 			// angleInput1
 			// 
-			this->angleInput1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom));
+			this->angleInput1->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->angleInput1->Cursor = System::Windows::Forms::Cursors::IBeam;
 			this->angleInput1->ImeMode = System::Windows::Forms::ImeMode::NoControl;
-			this->angleInput1->Location = System::Drawing::Point(93, 51);
+			this->angleInput1->Location = System::Drawing::Point(93, 60);
 			this->angleInput1->Name = L"angleInput1";
 			this->angleInput1->Size = System::Drawing::Size(163, 22);
 			this->angleInput1->TabIndex = 0;
@@ -378,10 +384,10 @@ namespace AngleVisualizer {
 			// 
 			// angleInput2
 			// 
-			this->angleInput2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom));
+			this->angleInput2->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->angleInput2->Cursor = System::Windows::Forms::Cursors::IBeam;
 			this->angleInput2->ImeMode = System::Windows::Forms::ImeMode::NoControl;
-			this->angleInput2->Location = System::Drawing::Point(93, 51);
+			this->angleInput2->Location = System::Drawing::Point(93, 60);
 			this->angleInput2->Name = L"angleInput2";
 			this->angleInput2->Size = System::Drawing::Size(163, 22);
 			this->angleInput2->TabIndex = 0;
@@ -412,29 +418,62 @@ namespace AngleVisualizer {
 			this->tableLayoutPanel2->ColumnCount = 1;
 			this->tableLayoutPanel2->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				100)));
+			this->tableLayoutPanel2->Controls->Add(this->seconds, 0, 4);
+			this->tableLayoutPanel2->Controls->Add(this->minutes, 0, 3);
 			this->tableLayoutPanel2->Controls->Add(this->radians, 0, 2);
 			this->tableLayoutPanel2->Controls->Add(this->label3, 0, 0);
 			this->tableLayoutPanel2->Controls->Add(this->resultOutput, 0, 1);
-			this->tableLayoutPanel2->Controls->Add(this->result, 0, 3);
+			this->tableLayoutPanel2->Controls->Add(this->result, 0, 5);
 			this->tableLayoutPanel2->Location = System::Drawing::Point(940, 34);
 			this->tableLayoutPanel2->Name = L"tableLayoutPanel2";
-			this->tableLayoutPanel2->RowCount = 4;
-			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 10)));
-			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 10)));
-			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 13)));
+			this->tableLayoutPanel2->RowCount = 6;
+			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 8)));
+			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 6)));
+			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 6)));
+			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 6.5F)));
+			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 6.5F)));
 			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 67)));
 			this->tableLayoutPanel2->Size = System::Drawing::Size(349, 460);
 			this->tableLayoutPanel2->TabIndex = 10;
+			// 
+			// seconds
+			// 
+			this->seconds->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->seconds->Cursor = System::Windows::Forms::Cursors::IBeam;
+			this->seconds->Enabled = false;
+			this->seconds->ImeMode = System::Windows::Forms::ImeMode::NoControl;
+			this->seconds->Location = System::Drawing::Point(4, 127);
+			this->seconds->Name = L"seconds";
+			this->seconds->ReadOnly = true;
+			this->seconds->Size = System::Drawing::Size(341, 22);
+			this->seconds->TabIndex = 15;
+			this->seconds->TabStop = false;
+			this->seconds->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			// 
+			// minutes
+			// 
+			this->minutes->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->minutes->Cursor = System::Windows::Forms::Cursors::IBeam;
+			this->minutes->Enabled = false;
+			this->minutes->ImeMode = System::Windows::Forms::ImeMode::NoControl;
+			this->minutes->Location = System::Drawing::Point(4, 97);
+			this->minutes->Name = L"minutes";
+			this->minutes->ReadOnly = true;
+			this->minutes->Size = System::Drawing::Size(341, 22);
+			this->minutes->TabIndex = 15;
+			this->minutes->TabStop = false;
+			this->minutes->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// radians
 			// 
 			this->radians->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->radians->Cursor = System::Windows::Forms::Cursors::IBeam;
+			this->radians->Enabled = false;
 			this->radians->ImeMode = System::Windows::Forms::ImeMode::NoControl;
-			this->radians->Location = System::Drawing::Point(48, 111);
+			this->radians->Location = System::Drawing::Point(4, 69);
 			this->radians->Name = L"radians";
 			this->radians->ReadOnly = true;
-			this->radians->Size = System::Drawing::Size(253, 22);
+			this->radians->Size = System::Drawing::Size(341, 22);
 			this->radians->TabIndex = 14;
 			this->radians->TabStop = false;
 			this->radians->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -449,7 +488,7 @@ namespace AngleVisualizer {
 				static_cast<System::Byte>(204)));
 			this->label3->Location = System::Drawing::Point(4, 1);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(341, 45);
+			this->label3->Size = System::Drawing::Size(341, 36);
 			this->label3->TabIndex = 2;
 			this->label3->Text = L"Result circle";
 			this->label3->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -458,11 +497,12 @@ namespace AngleVisualizer {
 			// 
 			this->resultOutput->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom));
 			this->resultOutput->Cursor = System::Windows::Forms::Cursors::IBeam;
+			this->resultOutput->Enabled = false;
 			this->resultOutput->ImeMode = System::Windows::Forms::ImeMode::NoControl;
-			this->resultOutput->Location = System::Drawing::Point(93, 50);
+			this->resultOutput->Location = System::Drawing::Point(4, 41);
 			this->resultOutput->Name = L"resultOutput";
 			this->resultOutput->ReadOnly = true;
-			this->resultOutput->Size = System::Drawing::Size(163, 22);
+			this->resultOutput->Size = System::Drawing::Size(341, 22);
 			this->resultOutput->TabIndex = 0;
 			this->resultOutput->TabStop = false;
 			this->resultOutput->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -475,9 +515,9 @@ namespace AngleVisualizer {
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->result->BackColor = System::Drawing::SystemColors::ControlLight;
 			this->result->Cursor = System::Windows::Forms::Cursors::Cross;
-			this->result->Location = System::Drawing::Point(4, 156);
+			this->result->Location = System::Drawing::Point(4, 157);
 			this->result->Name = L"result";
-			this->result->Size = System::Drawing::Size(341, 300);
+			this->result->Size = System::Drawing::Size(341, 299);
 			this->result->TabIndex = 7;
 			this->result->TabStop = false;
 			// 
@@ -651,7 +691,7 @@ namespace AngleVisualizer {
 	private: System::Void angleMult2_Click(System::Object^ sender, System::EventArgs^ e) {
 		angle a1(Utils::toStdString(angleInput2->Text));
 		int mult = 1;
-		if (k1->Text != "")
+		if (k2->Text != "")
 			mult = Convert::ToInt32(k2->Text);
 		angle res = a1 * mult;
 		angleInput2->Text = Utils::toSystemString(res.ToString());
